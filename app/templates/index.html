@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ticket supervisor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Ticket supervisor data</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Utente apertura</th>
+            <th>Utente segnalato</th>
+            <th>ID task</th>
+            <th>Note</th>
+            <th>Tag</th>
+            <th>Data apertura</th>
+            <th>Data chiusura</th>
+        </tr>
+        {% for ticket in tickets %}
+        <tr>
+            <td>{{ ticket.id }}</td>
+            <td>{{ ticket.utente_apertura }}</td>
+            <td>{{ ticket.utente_segnalato }}</td>
+            <td>{{ ticket.id_task }}</td>
+            <td>{{ ticket.note }}</td>
+            <td>{{ ticket.tag }}</td>
+            <td>{{ ticket.data_apertura }}</td>
+            <td>{{ ticket.data_chiusura }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    {% if current_user.is_admin %}
+    <button onclick="document.getElementById('addModal').style.display='block'">Add ticket</button>
+    {% endif %}
+    
+    <div id="addModal" style="display:none;">
+        <form action="{{ url_for('add_ticket') }}" method="POST">
+            <label for="utente_apertura">Utente apertura:</label>
+            <input type="text" id="utente_apertura" name="utente_apertura" required><br>
+            <label for="utente_segnalato">Utente segnalato:</label>
+            <input type="text" id="utente_segnalato" name="utente_segnalato" required><br>
+            <label for="id_task">ID task:</label>
+            <input type="text" id="id_task" name="id_task" required><br>
+            <label for="note">Note:</label>
+            <textarea id="note" name="note"></textarea><br>
+            <label for="tag">Tag:</label>
+            <input type="text" id="tag" name="tag"><br>
+            <button type="submit">Add</button>
+        </form>
+        <button onclick="document.getElementById('addModal').style.display='none'">Close</button>
+    </div>
+</body>
+</html>
