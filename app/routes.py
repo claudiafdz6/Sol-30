@@ -18,6 +18,7 @@ def add_ticket():
         note = request.form.get('note')
         tag = request.form.get('tag')
         
+                
         new_ticket = TicketSupervisor(
             id=id,
             utente_apertura=utente_apertura,

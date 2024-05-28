@@ -10,4 +10,5 @@ with app.app_context():
     db.session.add(admin)
     db.session.add(user)
     db.session.commit()
+    
     print('Admin and user were created successfully')
