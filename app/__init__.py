@@ -7,6 +7,7 @@ db = SQLAlchemy()
 login_manager = LoginManager()
 login_manager.login_view = 'login'
 
+
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
@@ -18,5 +19,9 @@ def create_app():
         from . import routes, models
 
         db.create_all()
+
+        @login_manager.user_loader
+        def load_user(user_id):
+            return models.User.query.get(int(user_id))
 
         return app

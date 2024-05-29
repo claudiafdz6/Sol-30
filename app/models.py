@@ -1,4 +1,5 @@
 from . import db
+from flask_login import UserMixin
 from datetime import datetime
 
 class TicketSupervisor(db.Model):
@@ -10,3 +11,9 @@ class TicketSupervisor(db.Model):
     tag = db.Column(db.String(64), nullable=True)
     data_apertura = db.Column(db.DateTime, default=datetime)
     data_chiusura = db.Column(db.DateTime, nullable=True)
+
+
+class User(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(150), unique=True, nullable=False)
+    password = db.Column(db.String(150), nullable=False)

@@ -12,12 +12,22 @@ th, td {
     text-align: left;
 }
 
-#addModal {
-    position: fixed;
+#buttonClose{
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid #888;
+    border: 1px solid black;
+    padding: 20px;
+    background-color: white;
+}
+
+#addButton{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
     padding: 20px;
     background-color: white;
 }

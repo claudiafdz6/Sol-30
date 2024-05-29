@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Ticket supervisor</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}"/>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
 </head>
 <body>
     <h1>Ticket supervisor data</h1>
     <table>
         <tr>
-            <th>ID</th>
-            <th>Utente apertura</th>
-            <th>Utente segnalato</th>
-            <th>ID task</th>
-            <th>Note</th>
-            <th>Tag</th>
-            <th>Data apertura</th>
-            <th>Data chiusura</th>
+            <th>ID:</th>
+            <th>Utente apertura:</th>
+            <th>Utente segnalato:</th>
+            <th>ID task:</th>
+            <th>Note:</th>
+            <th>Tag:</th>
+            <th>Data apertura:</th>
+            <th>Data chiusura:</th>
         </tr>
         {% for ticket in tickets %}
         <tr>
@@ -33,9 +34,10 @@
     </table>
     
     {% if current_user.is_admin %}
-    <button onclick="document.getElementById('addModal').style.display='block'">Add ticket</button>
+    <button id="addTicketButton">Add ticket</button>
     {% endif %}
     
+    {# Modal created for admin for adding reporting data #}
     <div id="addModal" style="display:none;">
         <form action="{{ url_for('add_ticket') }}" method="POST">
             <label for="utente_apertura">Utente apertura:</label>
@@ -49,12 +51,12 @@
             <label for="tag">Tag:</label>
             <input type="text" id="tag" name="tag"><br>
             <label for="data_apertura">Data apertura:</label>
-            <input type="datetime" id="data_apertura"/><br>
-            <label type="data_chiusura" id="data_chiusura">Data chiusura</label>
-            <input type="datetime" id="data_chiusura"><br>
+            <input type="datetime-local" id="data_apertura" name="data_apertura"><br>
+            <label for="data_chiusura">Data chiusura:</label>
+            <input type="datetime-local" id="data_chiusura" name="data_chiusura"><br>
             <button type="submit">Add</button>
         </form>
-        <button onclick="document.getElementById('addModal').style.display='none'">Close</button>
+        <button id="addButton">Close</button>
     </div>
 </body>
 </html>
