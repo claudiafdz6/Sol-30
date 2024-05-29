@@ -1,5 +1,4 @@
 
-
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('addButton').addEventListener('click', function () {
         document.getElementById('addModal').style.display = 'none';

@@ -34,11 +34,11 @@
     </table>
     
     {% if current_user.is_admin %}
-    <button id="addTicketButton">Add ticket</button>
+    <button onclick="document.getElementById('addModal').style.display='block'">Add ticket</button>
     {% endif %}
     
-    {# Modal created for admin for adding reporting data #}
-    <div id="addModal" style="display:none;">
+    <!-- Modal created for admin for adding data } -->
+    <div id="addModal" style="display:true;">
         <form action="{{ url_for('add_ticket') }}" method="POST">
             <label for="utente_apertura">Utente apertura:</label>
             <input type="text" id="utente_apertura" name="utente_apertura" required><br>

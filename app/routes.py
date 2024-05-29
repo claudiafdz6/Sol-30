@@ -1,6 +1,6 @@
 # app/routes.py
 from flask import current_app as app
-from flask import render_template, request, redirect, url_for, flash
+from flask import render_template, request, redirect, url_for
 from flask_login import login_user, logout_user, login_required, current_user
 from . import db
 from .models import TicketSupervisor, User
@@ -20,9 +20,9 @@ def login():
         
         if user and user.password == password:
             login_user(user)
-            return redirect(url_for('index'))
+            return redirect(url_for('index.html'))
         else:
-            flash('Invalid username or password')
+            print('Invalid username or password')
     
     return render_template('login.html')
 
