@@ -1,4 +1,3 @@
-# app/routes.py
 from flask import current_app as app
 from flask import render_template, request, redirect, url_for
 from flask_login import login_user, logout_user, login_required, current_user
@@ -24,13 +23,13 @@ def login():
         else:
             print('Invalid username or password')
     
-    return render_template('login.html')
+    return render_template('index.html')
 
 @app.route('/logout')
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('login'))
+    return redirect(url_for('login.html'))
 
 @app.route('/add', methods=['POST'])
 @login_required
@@ -60,4 +59,4 @@ def add_ticket():
         db.session.commit()
         
         print('Ticket has been added')
-        return redirect(url_for('index'))
+        return redirect(url_for('index.html'))

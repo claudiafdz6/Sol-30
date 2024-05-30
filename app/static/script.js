@@ -1,10 +1,11 @@
 
 document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('addButton').addEventListener('click', function () {
-        document.getElementById('addModal').style.display = 'none';
-    });
 
     document.getElementById('addTicketButton').addEventListener('click', function () {
-        document.getElementById('addModal').style.display = 'block';
+        document.getElementById('addModalButton').style.display = 'block';
+    });
+
+    document.getElementById('closeButton').addEventListener('click', function () {
+        document.getElementById('addModalButton').style.display = 'none';
     });
 });

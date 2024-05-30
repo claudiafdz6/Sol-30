@@ -1,5 +1,7 @@
+/* Index html section */
+
 table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
 }
 
@@ -12,22 +14,13 @@ th, td {
     text-align: left;
 }
 
-#buttonClose{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid black;
-    padding: 20px;
-    background-color: white;
-}
 
-#addButton{
-    position: absolute;
-    top: 50%;
+/* Login html section */
+
+#container {
+    top: 30%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid black;
-    padding: 20px;
-    background-color: white;
+    border-top: 50px;
+    margin: auto;
+    position: absolute;
 }

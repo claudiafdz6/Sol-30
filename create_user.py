@@ -11,4 +11,4 @@ with app.app_context():
     db.session.add(user)
     db.session.commit()
     
-    print('Admin and user were created successfully')
+    print('Admin and user have been created successfully')
